@@ -220,9 +220,9 @@ int ModificarMascota(eMascota listadoMascotas[], int tamListaMascotas, int idAMo
     if(idAModificar != -1)
     {
         printf("\n  MODIFICAR\n  ---------");
-        printf("\n  1.Nombre\n  2.Edad\n  3.Sexo\n  4.Tipo\n  5.Raza\n  6.CANCELAR\n");
+        printf("\n  1.Nombre\n  2.Edad\n  3.Peso\n  4.Sexo\n  5.Tipo\n  6.Raza\n  7.CANCELAR\n");
 
-        utn_getNumero(&opcionElegida, "\n-Que desea modificar?: ", "\n.Opcion Invalida! Ingrese un numero valido entre las opciones.", 1, 6);
+        utn_getNumero(&opcionElegida, "\n-Que desea modificar?: ", "\n.Opcion Invalida! Ingrese un numero valido entre las opciones.", 1, 7);
 
         switch(opcionElegida)
         {
@@ -233,29 +233,45 @@ int ModificarMascota(eMascota listadoMascotas[], int tamListaMascotas, int idAMo
                 utn_getNumero(&listadoMascotas[idAModificar].edad, "\n-Ingrese la nueva edad de la mascota: ", "\n.Edad invalida! Min: 0 Max: 20.", 0, 20);
                 break;
             case 3:
-                listadoMascotas[idAModificar].sexo = GetGender("\n-Ingrese el nuevo genero de la mascota F | M : ", "\n.Genero invalido! Solo ingrese F o M.");
+                //Para que el usuario modifique un peso segun el tipo de la mascota como en la carga y ser mas realista.
+                if(strcmp(listadoMascotas[idAModificar].tipo, "Gato") == 0)
+                {
+                    utn_getNumeroFlotante(&listadoMascotas[idAModificar].peso, "\n-Ingrese el peso de la mascota en kilos: ", "\n.Peso Invalido! Ingrese un numero valido (Un gato no debe pesar mas de 13 kilos).", 0, 13);
+                }else if(strcmp(listadoMascotas[idAModificar].tipo, "Perro") == 0){
+                    utn_getNumeroFlotante(&listadoMascotas[idAModificar].peso, "\n-Ingrese el peso de la mascota en kilos: ", "\n.Peso Invalido! Ingrese un numero valido (Un perro no debe pesar mas de 90 kilos).", 0, 90);
+                }else{
+                    utn_getNumeroFlotante(&listadoMascotas[idAModificar].peso, "\n-Ingrese el peso de la mascota en kilos: ", "\n.Peso Invalido! Ingrese un numero valido (Peso no mayor a 150kg).", 0, 150);
+                }
                 break;
             case 4:
-                utn_getNumero(&numeroTipo, "\n-Ingrese el numero correspondiente al tipo de la mascota\n\n # 1.Gato ---  2.Perro : ", "\n.Tipo invalido! Ingrese 1 o 2.", 1, 2);
+                listadoMascotas[idAModificar].sexo = GetGender("\n-Ingrese el nuevo genero de la mascota F | M : ", "\n.Genero invalido! Solo ingrese F o M.");
+                break;
+            case 5:
+                utn_getNumero(&numeroTipo, "\n-Ingrese el numero correspondiente al tipo de la mascota\n\n # 1.Gato ---  2.Perro -- 3.Raro: ", "\n.Tipo invalido! Ingrese 1, 2 o 3.", 1, 3);
 
-                if(numeroTipo)
+                switch(numeroTipo)
                 {
-                    strcpy(listadoMascotas[idAModificar].tipo, "Gato"); // 1
-                }else{
-                    strcpy(listadoMascotas[idAModificar].tipo, "Perro"); // 2
+                    case 1:
+                        strcpy(listadoMascotas[idAModificar].tipo, "Gato"); // 1
+                        break;
+                    case 2:
+                        strcpy(listadoMascotas[idAModificar].tipo, "Perro"); // 1
+                        break;
+                    default:
+                        strcpy(listadoMascotas[idAModificar].tipo, "Raro"); // 1
                 }
 
                 break;
-            case 5:
+            case 6:
                 MostrarListadoRazasDisponibles(listadoRazas, tamlistaRazas);
                 utn_getNumero(&listadoMascotas[idAModificar].idRaza, "\n-Ingrese el numero perteneciente a la raza de su mascota: ", "\n.Error raza invalida! Solo ingrese el numero correspondiente.", 10, idMaximoRazaDisponible);
                 break;
-            case 6:
+            case 7:
                 retorno = 0; //El usuario cancelo la modificacion.
                 break;
         }
 
-        if(opcionElegida != 6)
+        if(opcionElegida != 7)
         {
             retorno = 1; //El usuario realizo una modificacion.
         }

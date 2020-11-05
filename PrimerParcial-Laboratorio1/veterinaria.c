@@ -331,6 +331,8 @@ int MostrarListadoPorTamanioYPeso(eMascota listadoMascotas[], int tamListaMascot
     {
         printf("\n-La suma total del peso entre las mascotas de tamanio %s es: %.3f\n\n", tamanioElegido, sumaPesoMascotas);
     }else{
+        printf("      |\t\t\t    NO HAY MASCOTAS DE ESTE TAMANIO EN LA VETERINARIA  \t\t\t      |\n");
+        printf("      -------------------------------------------------------------------------------------------------\n");
         printf("\n-No hay mascotas de tamanio %s en la lista para calcular el peso total.\n\n", tamanioElegido);
     }
 
