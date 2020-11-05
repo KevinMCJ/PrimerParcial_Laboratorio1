@@ -1,0 +1,79 @@
+# depslib dependency file v1.0
+1602774646 source:c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\misvalidaciones.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	"misvalidaciones.h"
+
+1602774646 c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\misvalidaciones.h
+
+1602155193 source:c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1602759564 c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\utn.h
+	<stdio.h>
+
+1604545728 source:c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"misvalidaciones.h"
+	"pais.h"
+	"razas.h"
+	"mascotas.h"
+	"veterinaria.h"
+
+1604551106 c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\veterinaria.h
+
+1604551118 source:c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\veterinaria.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"pais.h"
+	"razas.h"
+	"mascotas.h"
+	"veterinaria.h"
+	"misvalidaciones.h"
+	"utn.h"
+
+1604356199 c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\razas.h
+
+1604551098 c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\mascotas.h
+
+1604551126 source:c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\mascotas.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"pais.h"
+	"razas.h"
+	"mascotas.h"
+	"veterinaria.h"
+	"misvalidaciones.h"
+	"utn.h"
+
+1604356155 source:c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\razas.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"pais.h"
+	"razas.h"
+	"misvalidaciones.h"
+	"utn.h"
+
+1602766202 c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\pais.h
+
+1602794047 source:c:\users\kevin\desktop\2do cuatrimesrte utn\laboratorio-programacion 1\primerparcial-laboratorio1\pais.c
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	"pais.h"
+	"razas.h"
+	"mascotas.h"
+	"veterinaria.h"
+	"misvalidaciones.h"
+	"utn.h"
+
