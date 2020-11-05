@@ -1,5 +1,6 @@
 /*PROTOTIPO O FIRMA*/
-#include <stdio.h>
+#ifndef UTN_H
+#define UTN_H
 
 int MyGets(char* cadena, int longitud);
 
@@ -14,3 +15,5 @@ int esFlotante(char* cadena, int limite);
 int getFloat(float* pResultado);
 
 int utn_getNumeroFlotante(float* pResultado, char* mensaje, char* mensajeError, float minimo, float maximo);
+
+#endif // UTN_H

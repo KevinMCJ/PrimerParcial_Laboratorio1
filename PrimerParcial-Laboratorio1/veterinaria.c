@@ -33,8 +33,8 @@ void Menu()
 
 void MostrarMascotaConRaza(eMascota unaMascota, eRaza unaRaza, ePais unPais)
 {
-    printf("      |  %-5d\t%-10s\t%-6c \t %-7s\t%-4d \t %-10s\t   %-10s\t   |\n", unaMascota.id, unaMascota.nombre, unaMascota.sexo, unaMascota.tipo, unaMascota.edad, unaRaza.descripcion, unPais.nombrePais);
-    printf("      ----------------------------------------------------------------------------------------------\n");
+    printf("      |  %-5d\t%-10s\t%-6c \t %-7s\t%-4d \t %-20s  %-11s   |\n", unaMascota.id, unaMascota.nombre, unaMascota.sexo, unaMascota.tipo, unaMascota.edad, unaRaza.descripcion, unPais.nombrePais);
+    printf("      ------------------------------------------------------------------------------------------------\n");
 }
 
 void MostrarListadoMascotasConRazas(eMascota listadoMascotas[], int tamListaMascotas, eRaza listadoRazas[], int tamListaRazas, ePais listadoPaises[], int tamListaPaises)
@@ -44,9 +44,9 @@ void MostrarListadoMascotasConRazas(eMascota listadoMascotas[], int tamListaMasc
 
     int i;
 
-    printf("      ----------------------------------------------------------------------------------------------\n");
-    printf("      |  ID  |  NOMBRE    |   SEXO    |   TIPO    |   EDAD    |      RAZA      |   PAIS DE ORIGEN  |\n");
-    printf("      ----------------------------------------------------------------------------------------------\n");
+    printf("      ------------------------------------------------------------------------------------------------\n");
+    printf("      |  ID  |  NOMBRE    |   SEXO    |   TIPO    |   EDAD    |       RAZA       |   PAIS DE ORIGEN  |\n");
+    printf("      ------------------------------------------------------------------------------------------------\n");
 
     for(i=0; i<tamListaMascotas; i++)
     {
@@ -111,9 +111,9 @@ void MostrarListadoMascotaMismaRaza(eMascota listadoMascotas[], int tamListaMasc
     printf("\n\t\t       ____________________________________________________________\n\t\t      |\t\t\t\t\t\t\t\t   |\n");
     printf("\t\t      | Listado de mascotas pertenecientes a la raza de su mascota |\n");
     printf("\t\t      |____________________________________________________________|\n\n");
-    printf("      ----------------------------------------------------------------------------------------------\n");
-    printf("      |  ID  |  NOMBRE    |   SEXO    |   TIPO    |   EDAD    |      RAZA      |   PAIS DE ORIGEN  |\n");
-    printf("      ----------------------------------------------------------------------------------------------\n");
+    printf("      ------------------------------------------------------------------------------------------------\n");
+    printf("      |  ID  |  NOMBRE    |   SEXO    |   TIPO    |   EDAD    |       RAZA       |   PAIS DE ORIGEN  |\n");
+    printf("      ------------------------------------------------------------------------------------------------\n");
 
     for(iMascotas=0; iMascotas<tamListaMascotas; iMascotas++)
     {
@@ -155,6 +155,7 @@ void MostrarPaisDeOrigenMasMascotas(eMascota listadoMascotas[], int tamListaMasc
 
     contadorMaximosRepetidos = 0;
 
+    //Carga de array pais de origen mediante las razas de cada mascota.
     for(i=0; i<tamListaMascotas; i++)
     {
         if(listadoMascotas[i].isEmpty == OCUPADO)
@@ -168,6 +169,7 @@ void MostrarPaisDeOrigenMasMascotas(eMascota listadoMascotas[], int tamListaMasc
         }
     }
 
+    //Carga de arrays contadores mediante el paralelo del id pais de origen.
     for(i=0; i<tamListaMascotas-1; i++)
     {
         for(j=i+1; j<tamListaMascotas; j++)
@@ -179,6 +181,7 @@ void MostrarPaisDeOrigenMasMascotas(eMascota listadoMascotas[], int tamListaMasc
         }
     }
 
+    //Iteracion para encontrar finalmente el idPais de origen con mas repeticiones.
     for(i=0; i<tamListaMascotas;i++)
     {
         if(i==0 || arrayContadores[i] > maximaCantidadRepeticiones)
@@ -191,6 +194,8 @@ void MostrarPaisDeOrigenMasMascotas(eMascota listadoMascotas[], int tamListaMasc
         }
     }
 
+    /*Iteracion para saber sabes si hay varios maximos en el arrayContadores, de ser asi hay 2
+            razas o mas con la misma cantidad de mascotas maximas de la lista.*/
     for(i=0; i<tamListaMascotas; i++)
     {
         if(arrayContadores[i] == maximaCantidadRepeticiones && arrayContadores[i] <= tamListaMascotas)
@@ -251,11 +256,11 @@ int OrdenarListadoPorCodigoTelPais(eMascota listadoMascotas[], int tamListaMasco
     {
         for(j=i+1; j<tamListaMascotas; j++)
         {
-            //Obtenemos la raza en posicion 0 con sus campos.
+            //Obtenemos la raza para luego obtener el pais de cada mascota mediante la relacion.
             auxRazaI = BuscarRaza(listadoRazas, tamListaRazas, listadoMascotas[i].idRaza);
 
             auxPaisI = BuscarPais(listadoPaises, tamListaPaises, auxRazaI.idPaisOrigen);
-            //Obtenemos la raza en posicion i+1 con sus campos.
+            //Hacemos lo mismo con la siguiente mascota asi podemos compararlas.
             auxRazaJ = BuscarRaza(listadoRazas, tamListaRazas, listadoMascotas[j].idRaza);
 
             auxPaisJ = BuscarPais(listadoPaises, tamListaPaises, auxRazaJ.idPaisOrigen);

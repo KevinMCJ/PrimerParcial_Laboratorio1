@@ -2,6 +2,11 @@
 #ifndef VETERINARIA_H
 #define VETERINARIA_H
 
+/** \brief Despliega un menu de opciones para el usuario, con cada funcionalidad principal.
+ *
+ * \return void
+ *
+ */
 void Menu();
 
 void MostrarMascotaConRaza(eMascota unaMascota, eRaza unaRaza, ePais unPais);
